@@ -1,4 +1,5 @@
 <h1>Countries</h1>
+@if(countries) {
 <table class="table table-striped">
     <thead>
     <th>id</th>
@@ -18,3 +19,8 @@
 </tbody>
     
 </table>
+}
+@else {
+    <p>try again</p>
+}
+

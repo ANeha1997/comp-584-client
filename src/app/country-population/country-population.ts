@@ -1,23 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PopulationData } from './population-data';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-country-population',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './country-population.html',
   styleUrl: './country-population.scss'
 })
-export class CountryPopulation {
-  country: PopulationData[] = [];
+export class CountryPopulation implements OnInit {
+  CountryPopulation: PopulationData | null = null;
 
-  constructor(private http: HttpClient) {
-    // You can initialize your component here
-    http.get<PopulationData[]>(environment.apiUrl + "api/Countries/population/26").subscribe(data => {
-      this.country = data;
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+   
+   
+
+  }
+  ngOnInit(): void {
+    let idparam = this.activatedRoute.snapshot.paramMap.get('id');
+     this.http.get<PopulationData>(`${environment.apiUrl}api/Countries/population/${idparam}`).subscribe(data => {
+      this.CountryPopulation = data;
     });
-
   }
 
 }
