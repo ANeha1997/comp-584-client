@@ -1,5 +1,5 @@
 <h1>Countries</h1>
-@if(countries) {
+
 <table class="table table-striped">
     <thead>
     <th>id</th>
@@ -8,19 +8,15 @@
     <th>Iso3</th>
     </thead>
     <tbody>
-    @for (country of countries; track $index){
+    @for (country of (forecasts$ | async); track $index){
     <tr >
         <td><a [routerLink]="['/country-population', country.id]">{{country.id}}</a></td>
         <td>{{country.name}}</td>
         <td>{{country.iso2}}</td>
         <td>{{country.iso3}}</td>
     </tr>
-}
-</tbody>
+    }
+    </tbody>
     
 </table>
-}
-@else {
-    <p>try again</p>
-}
 

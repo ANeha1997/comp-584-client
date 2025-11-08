@@ -1,6 +1,6 @@
 export interface CityData {
     id: number;
-    country_id: number;
+    countryId: number;
     name: string;
     latitude: number;
     longitude: number;
