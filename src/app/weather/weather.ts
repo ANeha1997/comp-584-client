@@ -21,7 +21,7 @@ forecasts$: Observable<WeatherData[]>;
   // }
 constructor(private http:HttpClient)
 {
-    this.forecasts$ = http.get<WeatherData[]>('http://localhost:5174/WeatherForecast/');
+    this.forecasts$ = http.get<WeatherData[]>('http://localhost:5174/WeatherForecast');
 }
      
   }

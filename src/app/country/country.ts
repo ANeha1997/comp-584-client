@@ -14,13 +14,15 @@ import { AsyncPipe } from '@angular/common';
 })
 export class Country {
 
-  countries:CountryData[] = [];
-  forecasts$: Observable<CountryData[]>;
+  // countries:CountryData[] = [];
+  // forecasts$: Observable<CountryData[]>;
+  countries$: Observable<CountryData[]>;
 
-  constructor(http: HttpClient) {
+
+  constructor(private http: HttpClient) {
     // You can initialize your component here
    
-      this.forecasts$ = http.get<CountryData[]>(environment.apiUrl + "api/Countries");
+      this.countries$ = http.get<CountryData[]>(environment.apiUrl + "api/Countries");
 
   }
 
