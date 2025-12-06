@@ -5,12 +5,14 @@ import { Component } from '@angular/core';
 import { City } from './city/city';
 import { Country } from './country/country';
 import { CountryPopulation } from './country-population/country-population';
+import { Login } from './auth/login';
 
 export const routes: Routes = [
     { path: '', component: Home, pathMatch: 'full'},
     { path: 'weather', component: Weather},
     { path: 'city', component: City},
     {path: 'country', component: Country},
-    {path: 'country-population/:id', component: CountryPopulation}
+    {path: 'country-population/:id', component: CountryPopulation},
+    {path: 'auth/login', component:Login}
 
 ];
